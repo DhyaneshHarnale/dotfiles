@@ -1,0 +1,43 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+//    "width": 1347,
+    "spacing": 20,
+    "modules-left": ["hyprland/window"],
+    "modules-center": ["custom/spotify"],
+    "modules-right": ["pulseaudio","clock"],
+
+    "clock": {
+        "timezone": "Asia/Calcutta",
+        "format": "{:%d/%m | %H:%M} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-disconnected": "Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "interval": 20,
+    },
+
+    "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "-",
+        "on-click": "pavucontrol"
+    },
+
+    "custom/spotify": {
+        "format": "{}",
+        "max-length": 50,
+        "interval": 2,
+        "exec": "$HOME/.config/hypr/song.sh 2> /dev/null", // Script in resources folder
+        "exec-if": "pgrep spotify"
+    },
+
+    "hyprland/window": {
+        "max-length": 40
+    }
+}

@@ -1,0 +1,18 @@
+* {
+	font-family: "JetBrainsMono Nerd Font";
+	font-weight: bold;
+	font-size: 14px;
+	color: #fff;
+    padding: 0;
+    margin: 1;
+}
+
+window#waybar {
+	background: rgba(30, 30, 30, 0.4);
+	border-bottom: 2px solid rgba(200, 200, 200, 0.8);
+}
+
+
+tooltip {
+	background: rgba(30, 30, 30, 0.5);
+}

@@ -1,0 +1,74 @@
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+  
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'p:lblue'
+    template = '<p:lorange>{{ if .Env.TMUX }}<b>tmux </b>{{ end }}</>{{ .Path }}'
+    
+    [blocks.segments.properties]
+      style = 'full'
+  
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    background = 'transparent'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}↓{{ end }}{{ if gt .Ahead 0 }}↑{{ end }}'
+   
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+    [[blocks.segments]]
+      type = 'executiontime'
+      style = 'plain'
+      background = 'transparent'
+      foreground = 'p:lblue'
+      template = '{{ .FormattedMs }}'
+        [blocks.segments.properties]
+          threshold = 5000
+          style = "round"
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground_templates = [
+      "{{if gt .Code 0}}p:lred{{end}}",
+      "{{if eq .Code 0}}p:lgreen{{end}}"
+    ]
+    background = 'transparent'
+    template = '❱'
+
+[transient_prompt]
+  background = 'transparent'
+  template = '❱ '
+  foreground_templates = [
+    "{{if gt .Code 0}}p:lred{{end}}",
+    "{{if eq .Code 0}}p:lgreen{{end}}"
+  ]
+
+[palette]
+  lblue = "#83A598"
+  dblue = "#458588"
+  lorange = "#FE8019"
+  dorange = "#D65D0E"
+  lred = "#FB4934"
+  lteal = "#8EC07C"
+  lgreen = "#B8BB26"
