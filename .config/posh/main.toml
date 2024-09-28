@@ -65,7 +65,7 @@ newline = true
   ]
 
 [palette]
-  lblue = "#83A598"
+  lblue = "#458588"
   dblue = "#458588"
   lorange = "#FE8019"
   dorange = "#D65D0E"
