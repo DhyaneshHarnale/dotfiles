@@ -16,7 +16,7 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/posh/main.toml)"
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
+# zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 
@@ -56,7 +56,7 @@ zinit snippet OMZP::git
 alias ls='ls --color'
 alias c='clear'
 alias ff='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
-alias clean="sudo pacman -Rns $(pacman -Qdtq)"
+alias clean="sudo pacman -Rns $(pacman -Qqtd)"
 alias update="sudo pacman -Syu"
 
 
@@ -66,3 +66,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Adding to path
 export PATH=$PATH:/home/dhyanesh/.spicetify
+export PATH=$PATH:/home/dhyanesh/.local/bin
