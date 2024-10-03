@@ -56,7 +56,6 @@ zinit snippet OMZP::git
 alias ls='ls --color'
 alias c='clear'
 alias ff='fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim'
-alias clean="sudo pacman -Rns $(pacman -Qqtd)"
 alias update="sudo pacman -Syu"
 
 
